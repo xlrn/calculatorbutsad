@@ -8,3 +8,52 @@ for (i = 1; i < 10; i++) {
     tempBtn.textContent = i;
     container.appendChild(tempBtn);
 }
+
+let numpad = document.querySelectorAll('.numButton');
+numpad.forEach(function(e) {
+    e.addEventListener('click', function() {
+        let value;
+        if (display.textContent == '0') {
+            value = e.textContent;
+        } else value = display.textContent + e.textContent;
+        updateValue(value);
+    })
+});
+
+const addButton = document.querySelector('#add');
+addButton.addEventListener('click', function() {
+    operand = "add";
+    saveValue(display.textContent);
+    console.log("addition mode set");
+    display.textContent = 0;
+});
+
+const equalButton = document.querySelector('#equals');
+equalButton.addEventListener('click', function() {
+    let curr = parseInt(display.textContent);
+    console.log(curr);
+    console.log(savedValue);
+    if (operand == "add") {
+        sum = add(savedValue, curr);
+        updateValue(sum);
+    }
+})
+
+function add(a, b) {
+    return a + b;
+}
+
+let operand = "";
+let savedValue = 0;
+
+function saveValue(value) {
+    savedValue = parseInt(value);
+}
+
+const display = document.querySelector('#current');
+
+function updateValue(value) {
+    display.textContent = value;
+}
+
+
