@@ -43,6 +43,14 @@ equalButton.addEventListener('click', function() {
             total = subtract(savedValue, curr);
             updateValue(total);
             break;
+        case "multiply":
+            total = multiply(savedValue, curr);
+            updateValue(total);
+            break;
+        case "divide":
+            total = divide(savedValue, curr);
+            updateValue(total);
+            break;
     }
 })
 
@@ -54,7 +62,7 @@ function subtract(a, b) {
     return a - b;
 }
 
-function multiple(a, b) {
+function multiply(a, b) {
     return a * b;
 }
 
