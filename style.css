@@ -60,7 +60,7 @@
     width: 60px;
 }
 
-#buttonDecimal {
+#decimal {
     grid-row: 6/7;
     grid-column: 3/4;
 }
