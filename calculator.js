@@ -31,16 +31,35 @@ addButton.addEventListener('click', function() {
 const equalButton = document.querySelector('#equals');
 equalButton.addEventListener('click', function() {
     let curr = parseInt(display.textContent);
+    let total = 0;
     console.log(curr);
     console.log(savedValue);
-    if (operand == "add") {
-        sum = add(savedValue, curr);
-        updateValue(sum);
+    switch(operand) {
+        case "add":
+            total = add(savedValue, curr);
+            updateValue(total);
+            break;
+        case "subtract": 
+            total = subtract(savedValue, curr);
+            updateValue(total);
+            break;
     }
 })
 
 function add(a, b) {
     return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiple(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return a / b;
 }
 
 let operand = "";
