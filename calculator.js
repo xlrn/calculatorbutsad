@@ -64,22 +64,22 @@ function calculate() {
     let total = 0;
     switch(operand) {
         case "add":
-            total = add(savedValue, curr);
+            total = truncate(add(savedValue, curr));
             updateValue(total);
             resetOperand();
             break;
         case "subtract": 
-            total = subtract(savedValue, curr);
+            total = truncate(subtract(savedValue, curr));
             updateValue(total);
             resetOperand();
             break;
         case "multiply":
-            total = multiply(savedValue, curr);
+            total = truncate(multiply(savedValue, curr));
             updateValue(total);
             resetOperand();
             break;
         case "divide":
-            total = divide(savedValue, curr);
+            total = truncate(divide(savedValue, curr));
             updateValue(total);
             resetOperand();
             break;
@@ -110,5 +110,9 @@ function saveValue(value) {
     savedValue = parseInt(value);
 }
 
+function truncate(value) {
+    let trungywungy = +value.toFixed(5);
+    return trungywungy;
+}
 
 
