@@ -17,7 +17,7 @@ let numpad = document.querySelectorAll('.numButton');
 numpad.forEach(function(e) {
     e.addEventListener('click', function() {
         let value;
-        if (display.textContent == "") {
+        if (display.textContent == "" || isNaN(display.textContent)) {
             value = e.textContent;
         } else value = display.textContent + e.textContent;
         updateValue(value);
@@ -79,9 +79,15 @@ function calculate() {
             resetOperand();
             break;
         case "divide":
+            if (curr == 0) {
+                total = "No."
+                updateValue(total);
+                savedValue = 0;
+            } else {
             total = truncate(divide(savedValue, curr));
             updateValue(total);
             resetOperand();
+            }
             break;
     }
 }
@@ -107,12 +113,13 @@ function divide(a, b) {
 }
 
 function saveValue(value) {
-    savedValue = parseInt(value);
+    if (isNaN(display.textContent)) {
+        savedValue = 0;
+    } else savedValue = parseInt(value);
 }
 
 function truncate(value) {
     let trungywungy = +value.toFixed(5);
     return trungywungy;
 }
-
 
