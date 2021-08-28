@@ -26,6 +26,7 @@ numpad.forEach(function(e) {
 
 const addButton = document.querySelector('#add');
 addButton.addEventListener('click', function() {
+    calculate();
     operand = "add";
     saveValue(display.textContent);
     display.textContent = "";
@@ -33,6 +34,7 @@ addButton.addEventListener('click', function() {
 
 const subtractButton = document.querySelector('#subtract');
 subtractButton.addEventListener('click', function() {
+    calculate();
     operand = "subtract";
     saveValue(display.textContent);
     display.textContent = "";
@@ -40,6 +42,7 @@ subtractButton.addEventListener('click', function() {
 
 const multiplyButton = document.querySelector('#multiply');
 multiplyButton.addEventListener('click', function() {
+    calculate();
     operand = "multiply";
     saveValue(display.textContent);
     display.textContent = "";
@@ -47,6 +50,7 @@ multiplyButton.addEventListener('click', function() {
 
 const divideButton = document.querySelector('#divide');
 divideButton.addEventListener('click', function() {
+    calculate();
     operand = "divide";
     saveValue(display.textContent);
     display.textContent = "";
