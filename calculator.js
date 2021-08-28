@@ -17,7 +17,7 @@ let numpad = document.querySelectorAll('.numButton');
 numpad.forEach(function(e) {
     e.addEventListener('click', function() {
         let value;
-        if (display.textContent == "" || isNaN(display.textContent)) {
+        if (display.textContent == "" || isNaN(display.textContent) || display.textContent == "0") {
             value = e.textContent;
         } else value = display.textContent + e.textContent;
         updateValue(value);
@@ -54,6 +54,11 @@ divideButton.addEventListener('click', function() {
 
 const equalButton = document.querySelector('#equals');
 equalButton.addEventListener('click', calculate);
+
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', function() {
+    updateValue(0);
+})
 
 function updateValue(value) {
     display.textContent = value;
