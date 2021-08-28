@@ -57,6 +57,7 @@ equalButton.addEventListener('click', calculate);
 
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', function() {
+    operand = "";
     updateValue(0);
 })
 
