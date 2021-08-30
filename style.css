@@ -16,6 +16,7 @@
 #current {
     text-align: right;
     height: 30px;
+    word-wrap: break-word;
 }
 
 .numButton {

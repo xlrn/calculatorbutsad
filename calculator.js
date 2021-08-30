@@ -65,12 +65,21 @@ clearButton.addEventListener('click', function() {
     updateValue(0);
 })
 
+const decimalButton = document.querySelector('#decimal');
+decimalButton.addEventListener('click', function() {
+    if (!display.textContent == "" || !isNaN(display.textContent)) {
+        value = display.textContent + decimalButton.textContent;
+    }
+    updateValue(value);
+    decimalButton.disabled = true;
+})
+
 function updateValue(value) {
     display.textContent = value;
 }
 
 function calculate() {
-    let curr = parseInt(display.textContent);
+    let curr = parseFloat(display.textContent);
     let total = 0;
     switch(operand) {
         case "add":
@@ -104,6 +113,7 @@ function calculate() {
 
 function resetOperand() {
     operand = ""
+    decimalButton.disabled = false;
 }
 
 function add(a, b) {
@@ -125,7 +135,7 @@ function divide(a, b) {
 function saveValue(value) {
     if (isNaN(display.textContent)) {
         savedValue = 0;
-    } else savedValue = parseInt(value);
+    } else savedValue = parseFloat(value);
 }
 
 function truncate(value) {
